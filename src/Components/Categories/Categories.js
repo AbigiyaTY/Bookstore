@@ -6,7 +6,8 @@ function Categories() {
     <div>
       <div className="container catContainer">
         <div className="row">
-          <h2 className="col-12 catTitle my-5 px-5">Check status</h2>
+          <hr className="col-12" />
+          <button type="button" className="col-4  my-2 py-5 px-3 catButton ">Check status</button>
         </div>
       </div>
     </div>
