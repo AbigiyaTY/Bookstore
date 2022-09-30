@@ -1,0 +1,13 @@
+.catContainer {
+  height: 250px;
+  background-color: #fafafa;
+}
+
+.catButton {
+  font-weight: 600;
+  font-size: 35px;
+  border: none;
+  color: #000;
+  background-color: #fafafa;
+  text-align: start;
+}
