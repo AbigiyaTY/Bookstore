@@ -1,0 +1,25 @@
+.navContainer {
+  background-color: #fff;
+  height: 90px;
+  margin-top: 2%;
+}
+
+.navTitle {
+  color: #0d95ff;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+li a {
+  color: #000;
+}
+
+li a:focus {
+  color: #9a9a9a;
+}

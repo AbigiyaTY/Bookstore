@@ -1,0 +1,16 @@
+#addRow {
+  margin-bottom: 20%;
+  padding-bottom: 5%;
+  background-color: #fafafa;
+}
+
+.addTitle {
+  color: #bfbfbf;
+  font-weight: 600;
+}
+
+.addButton {
+  background-color: #0290ff;
+  border: none;
+  color: #fff;
+}
