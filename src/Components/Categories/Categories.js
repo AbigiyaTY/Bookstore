@@ -6,7 +6,7 @@ function Categories() {
     <div>
       <div className="container catContainer">
         <div className="row">
-          <h2 className="col-12 catTitle my-5 px-5">Under construction</h2>
+          <h2 className="col-12 catTitle my-5 px-5">Check status</h2>
         </div>
       </div>
     </div>
