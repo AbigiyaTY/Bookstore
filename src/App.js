@@ -16,7 +16,6 @@ function App() {
           <Route path="/" element={<Booklist />} />
           <Route path="CATEGORIES" exact element={<Categories />} />
         </Routes>
-
       </div>
     </BrowserRouter>
   );
