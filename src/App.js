@@ -3,9 +3,9 @@ import {
   BrowserRouter,
   Routes, Route,
 } from 'react-router-dom';
-import Nav from './Components/Nav/Nav';
-import Booklist from './Components/Book/Booklist';
+import Books from './Components/Books';
 import Categories from './Components/Categories/Categories';
+import Nav from './Components/Nav/Nav';
 
 function App() {
   return (
@@ -13,8 +13,8 @@ function App() {
       <div className="App">
         <Nav />
         <Routes>
-          <Route path="/" element={<Booklist />} />
-          <Route path="CATEGORIES" exact element={<Categories />} />
+          <Route path="/" element={<Books />} />
+          <Route path="/categories" element={<Categories />} />
         </Routes>
       </div>
     </BrowserRouter>
