@@ -10,8 +10,8 @@ export const booksSlice = createSlice({
     },
 
     deleteBook: (state, action) => {
-      // eslint-disable-next-line no-param-reassign
-      state.value = state.value.filter((book) => book.id !== action.payload.id);
+      const index = state.value.findIndex((book) => book.id === action.payload);
+      state.value.splice(index, 1);
     },
   },
 });

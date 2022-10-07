@@ -10,12 +10,37 @@ const AddBook = () => {
 
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const handleAuthorChange = (e) => {
+    setAuthor(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newBook = {
+      id: uuid(),
+      title,
+      author,
+    };
+    dispatch(addBook(newBook));
+    setTitle('');
+    setAuthor('');
+  };
+
+  const handleRemoveBook = (book) => {
+    dispatch(deleteBook(book.id));
+  };
+
   return (
     <div className="container py-4">
       <div className="row">
         <div>
           {bookList.map((book) => (
-            <div key={book}>
+            <div key={book.id}>
               <div className="row">
                 <h3 className="col-12 bookTitle">{book.title}</h3>
                 <h3 className="col-12 author">{book.author}</h3>
@@ -23,9 +48,7 @@ const AddBook = () => {
               <button
                 type="button"
                 className="col-3 my-2 removeButton"
-                onClick={() => {
-                  dispatch(deleteBook({ id: book.id }));
-                }}
+                onClick={handleRemoveBook}
               >
                 Remove
               </button>
@@ -40,30 +63,18 @@ const AddBook = () => {
             name="title"
             placeholder="Tittle"
             className="col-4 mx-4"
-            onChange={(event) => {
-              setTitle(event.target.value);
-            }}
+            onChange={handleTitleChange}
           />
           <input
             type="text"
             placeholder="Author"
             className="col-3"
-            onChange={(event) => {
-              setAuthor(event.target.value);
-            }}
+            onChange={handleAuthorChange}
           />
           <button
             type="button"
             className="col-2 addButton p-2 mx-2"
-            onClick={() => {
-              dispatch(
-                addBook({
-                  id: uuid(),
-                  title,
-                  author,
-                }),
-              );
-            }}
+            onClick={handleSubmit}
           >
             Add Book
           </button>
