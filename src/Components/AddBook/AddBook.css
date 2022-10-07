@@ -1,9 +1,3 @@
-#addRow {
-  margin-bottom: 20%;
-  padding-bottom: 5%;
-  background-color: #fafafa;
-}
-
 .addTitle {
   color: #bfbfbf;
   font-weight: 600;
@@ -13,4 +7,20 @@
   background-color: #0290ff;
   border: none;
   color: #fff;
+}
+
+.bookTitle {
+  font-weight: 600;
+}
+
+.author,
+.removeButton {
+  color: #4386bf;
+}
+
+.removeButton {
+  border: none;
+  background: none;
+  padding: 0;
+  text-align: start;
 }
