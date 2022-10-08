@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
-// Initiale state.
+
 const initialState = [];
 
 const api = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/yrhTmLYwYcDLEAHmfCpQ/books';
@@ -34,7 +34,6 @@ export const removeBook = createAsyncThunk(
   },
 );
 
-// Creating book slice
 const bookSlice = createSlice({
   name: 'book',
   initialState,

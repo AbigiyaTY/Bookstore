@@ -7,10 +7,26 @@
 .addTitle {
   color: #bfbfbf;
   font-weight: 600;
+  padding-left: 0 !important;
 }
 
 .addButton {
   background-color: #0290ff;
   border: none;
   color: #fff;
+}
+
+.rowLeft {
+  margin-left: 2%;
+}
+
+.author,
+.categoryList,
+.addButton {
+  margin-left: 2%;
+}
+
+.hr {
+  width: 1190px;
+  margin-left: 1%;
 }

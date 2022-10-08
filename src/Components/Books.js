@@ -13,7 +13,7 @@ const Books = () => {
   }, [booksList.length, dispatch]);
 
   return (
-    <div className="container">
+    <div className="container booksContainer">
       <div className="row">
         <div className="col-12">
           {booksList.length > 0 ? (
