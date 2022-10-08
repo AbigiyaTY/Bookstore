@@ -1,32 +1,32 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
-
+// Initiale state.
 const initialState = [];
 
-const API_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/yrhTmLYwYcDLEAHmfCpQ/books';
+const api = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/yrhTmLYwYcDLEAHmfCpQ/books';
 
 export const fetchBooks = createAsyncThunk(
   'book/fetchBooks',
-  async () => (await axios.get(API_URL)).data,
+  async () => (await axios.get(api)).data,
 );
 
-export const addBooks = createAsyncThunk(
-  'book/addBook',
+export const postBook = createAsyncThunk(
+  'book/postBook',
   async (book) => (
-    await axios.post(API_URL, {
-      id: uuidv4(),
+    await axios.post(api, {
+      item_id: uuidv4(),
       title: book.title,
       author: book.author,
+      category: book.category,
     })
   ).data,
 );
-
 export const removeBook = createAsyncThunk(
   'book/removeBook',
   async (bookId) => {
     try {
-      const revBook = await axios.delete(`${API_URL}/${bookId}`);
+      const revBook = await axios.delete(`${api}/${bookId}`);
       return revBook.data;
     } catch (error) {
       return error?.response;
@@ -34,26 +34,25 @@ export const removeBook = createAsyncThunk(
   },
 );
 
-const booksSlice = createSlice({
-  name: 'books',
+// Creating book slice
+const bookSlice = createSlice({
+  name: 'book',
   initialState,
-  reducers: {},
   extraReducers: {
     [fetchBooks.fulfilled]: (state, action) => {
       const books = Object.keys(action.payload).map((item) => ({
-        id: item,
+        item_id: item,
         ...action.payload[item][0],
       }));
       return books;
     },
     [fetchBooks.rejected]: (state, action) => action.error.message,
-    [addBooks.fulfilled]: (state, action) => [...state, action.payload],
-    [addBooks.rejected]: (state, action) => action.error.message,
+    [postBook.fulfilled]: (state, action) => [...state, action.payload],
+    [postBook.rejected]: (state, action) => action.error.message,
     /* eslint-disable */
     [removeBook.fulfilled]: (state, action) =>
-      state.filter((item) => item.id !== action.meta.arg),
+      state.filter((item) => item.item_id !== action.meta.arg),
     [removeBook.rejected]: (state, action) => action.error.message,
   },
 });
-
-export default booksSlice.reducer;
+export default bookSlice.reducer;

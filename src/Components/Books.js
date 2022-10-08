@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBooks } from '../redux/books/books';
-import AddBooks from './AddBook/AddBook';
+import AddBook from './AddBook/AddBook';
 import BookDisplay from './BookList/BookDisplay';
 
-function Books() {
+const Books = () => {
   const booksList = useSelector((state) => state.books);
   const dispatch = useDispatch();
 
@@ -13,17 +13,19 @@ function Books() {
   }, [booksList.length, dispatch]);
 
   return (
-    <div className="Books">
-      <div>
-        {booksList.length > 0 ? (
-          <BookDisplay bookList={booksList} />
-        ) : (
-          <h3 className="p-5 mx-5">The store is empty</h3>
-        )}
+    <div className="container">
+      <div className="row">
+        <div className="col-12">
+          {booksList.length > 0 ? (
+            <BookDisplay bookList={booksList} />
+          ) : (
+            <h3 className="col-12 m-5">The store is empty</h3>
+          )}
+        </div>
       </div>
-      <AddBooks />
+      <AddBook />
     </div>
   );
-}
+};
 
 export default Books;
