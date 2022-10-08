@@ -4,8 +4,8 @@ import './Categories.css';
 
 const Categories = () => {
   const dispatch = useDispatch();
-  const handleClick = (category) => {
-    dispatch(categoryActionReducer(category));
+  const handleClick = () => {
+    dispatch(categoryActionReducer());
   };
 
   return (
@@ -14,8 +14,8 @@ const Categories = () => {
         <hr className="col-12" />
         <button
           type="button"
-          className="col-4  my-2 py-5 px-3 catButton "
-          onClick={() => handleClick('All')}
+          className="col-4  my-2 py-5 px-3 catButton"
+          onClick={handleClick}
         >
           Check status
         </button>

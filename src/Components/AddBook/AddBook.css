@@ -1,26 +1,10 @@
 .addTitle {
-  color: #bfbfbf;
-  font-weight: 600;
+    color: #bfbfbf;
+    font-weight: 600;
 }
 
 .addButton {
-  background-color: #0290ff;
-  border: none;
-  color: #fff;
-}
-
-.bookTitle {
-  font-weight: 600;
-}
-
-.author,
-.removeButton {
-  color: #4386bf;
-}
-
-.removeButton {
-  border: none;
-  background: none;
-  padding: 0;
-  text-align: start;
+    background-color: #0290ff;
+    border: none;
+    color: #fff;
 }

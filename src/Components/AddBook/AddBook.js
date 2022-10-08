@@ -1,12 +1,11 @@
-import uuid from 'react-uuid';
+import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { addBook, deleteBook } from '../../redux/books/books';
+import { useDispatch } from 'react-redux';
+import { addBooks } from '../../redux/books/books';
 import './AddBook.css';
 
 const AddBook = () => {
   const dispatch = useDispatch();
-  const bookList = useSelector((state) => state.books.value);
 
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
@@ -19,45 +18,23 @@ const AddBook = () => {
     setAuthor(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newBook = {
-      id: uuid(),
-      title,
-      author,
-    };
-    dispatch(addBook(newBook));
-    setTitle('');
-    setAuthor('');
-  };
-
-  const handleRemoveBook = (book) => {
-    dispatch(deleteBook(book.id));
+  const handleSubmit = () => {
+    if (title && author) {
+      dispatch(addBooks({
+        id: uuidv4(),
+        title,
+        author,
+      }));
+      document.querySelector('.form').reset();
+    }
   };
 
   return (
     <div className="container py-4">
       <div className="row">
-        <div>
-          {bookList.map((book) => (
-            <div key={book.id}>
-              <div className="row">
-                <h3 className="col-12 bookTitle">{book.title}</h3>
-                <h3 className="col-12 author">{book.author}</h3>
-              </div>
-              <button
-                type="button"
-                className="col-3 my-2 removeButton"
-                onClick={handleRemoveBook}
-              >
-                Remove
-              </button>
-            </div>
-          ))}
-        </div>
         <h1 className="col-12 my-1 addTitle">Add Books</h1>
         <hr className="col-12 my-4" />
-        <form className="row col-12">
+        <form className="row col-12 form">
           <input
             type="text"
             name="title"
@@ -83,4 +60,5 @@ const AddBook = () => {
     </div>
   );
 };
+
 export default AddBook;
