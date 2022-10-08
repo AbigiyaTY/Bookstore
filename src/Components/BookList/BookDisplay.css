@@ -1,6 +1,6 @@
 .bookContainer {
   background-color: #fff;
-  height: 230px;
+  height: 220px;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
   width: 1200px;
@@ -16,15 +16,18 @@
   color: #cecece;
   font-weight: 600;
   padding-top: 10px;
+  font-size: 0.875rem;
 }
 
 .bookTitle {
   font-weight: 600;
+  font-size: 1.5rem;
 }
 
 .bookAuthor {
   color: #4386bf;
   margin-left: 0 !important;
+  font-size: 0.875rem;
 }
 
 .removeButton {
@@ -34,6 +37,7 @@
   text-align: start;
   padding-left: 1%;
   color: #4386bf;
+  font-size: 0.875rem;
 }
 
 .comment {

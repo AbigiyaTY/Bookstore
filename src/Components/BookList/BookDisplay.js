@@ -26,7 +26,7 @@ const BookDisplay = ({ bookList }) => {
                     <span>|</span>
                   </button>
                   <button
-                    className="col-3 my-2 mx-2 removeButton"
+                    className="col-3 my-2 removeButton"
                     type="button"
                     id={book.item_id}
                     onClick={(event) => dispatch(removeBook(event.target.id))}
@@ -56,7 +56,7 @@ const BookDisplay = ({ bookList }) => {
               </div>
               <div className="col-3 row my-3">
                 <h5 className="col-12 currentChapter">CURRENT CHAPTER</h5>
-                <h5 className="col-12 my-1">Chapter 17</h5>
+                <h5 className="col-12 my-1 chapterNum">Chapter 17</h5>
                 <button type="button" className="col-10 updateButton py-2">
                   UPDATE PROGRESS
                 </button>

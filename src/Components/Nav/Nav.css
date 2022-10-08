@@ -26,7 +26,17 @@ li a:focus {
   color: #9a9a9a;
 }
 
-.logo {
+.Oval {
+  width: 2.813rem;
+  height: 2.813rem;
+  margin-top: 20px;
+  padding: 0.875rem;
+  border: solid 1px #e8e8e8;
+  border-radius: 50%;
+}
+
+.fas {
+  font-size: 24px;
   color: #0290ff;
-  font-size: 30px;
+  margin: -5px -5px;
 }
