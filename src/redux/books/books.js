@@ -1,20 +1,58 @@
-import { createSlice } from '@reduxjs/toolkit';
-import books from './data';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
+// Initiale state.
+const initialState = [];
 
-export const booksSlice = createSlice({
-  name: 'books',
-  initialState: { value: books },
-  reducers: {
-    addBook: (state, action) => {
-      state.value.push(action.payload);
-    },
+const api = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/yrhTmLYwYcDLEAHmfCpQ/books';
 
-    deleteBook: (state, action) => {
-      const index = state.value.findIndex((book) => book.id === action.payload);
-      state.value.splice(index, 1);
+export const fetchBooks = createAsyncThunk(
+  'book/fetchBooks',
+  async () => (await axios.get(api)).data,
+);
+
+export const postBook = createAsyncThunk(
+  'book/postBook',
+  async (book) => (
+    await axios.post(api, {
+      item_id: uuidv4(),
+      title: book.title,
+      author: book.author,
+      category: book.category,
+    })
+  ).data,
+);
+export const removeBook = createAsyncThunk(
+  'book/removeBook',
+  async (bookId) => {
+    try {
+      const revBook = await axios.delete(`${api}/${bookId}`);
+      return revBook.data;
+    } catch (error) {
+      return error?.response;
+    }
+  },
+);
+
+// Creating book slice
+const bookSlice = createSlice({
+  name: 'book',
+  initialState,
+  extraReducers: {
+    [fetchBooks.fulfilled]: (state, action) => {
+      const books = Object.keys(action.payload).map((item) => ({
+        item_id: item,
+        ...action.payload[item][0],
+      }));
+      return books;
     },
+    [fetchBooks.rejected]: (state, action) => action.error.message,
+    [postBook.fulfilled]: (state, action) => [...state, action.payload],
+    [postBook.rejected]: (state, action) => action.error.message,
+    /* eslint-disable */
+    [removeBook.fulfilled]: (state, action) =>
+      state.filter((item) => item.item_id !== action.meta.arg),
+    [removeBook.rejected]: (state, action) => action.error.message,
   },
 });
-
-export const { addBook, deleteBook } = booksSlice.actions;
-export default booksSlice.reducer;
+export default bookSlice.reducer;
