@@ -11,15 +11,15 @@ const AddBook = () => {
   const [category, setCategory] = useState('');
   return (
     <div className="container" id="addRow">
-      <div className="row">
-        <hr className="col-12 my-5" />
+      <div className="row rowLeft">
+        <hr className="col-12 my-5 hr" />
         <h2 className="col-12 addTitle my-3">ADD NEW BOOK</h2>
         <form className="form row col-12">
           <input
             type="text"
             name="title"
             placeholder="Title"
-            className="col-4 mx-2"
+            className="col-5 title"
             onChange={(event) => {
               setTitle(event.target.value);
             }}
@@ -27,7 +27,7 @@ const AddBook = () => {
           <input
             type="text"
             placeholder="Author"
-            className="col-3"
+            className="col-3 author"
             onChange={(event) => {
               setAuthor(event.target.value);
             }}
@@ -35,7 +35,7 @@ const AddBook = () => {
           <select
             required
             id="categoryList"
-            className="col-2 mx-2"
+            className="col-2 categoryList"
             onChange={(event) => setCategory(event.target.value)}
           >
             <option>Category</option>
@@ -45,7 +45,7 @@ const AddBook = () => {
           </select>
           <button
             type="button"
-            className="col-2 addButton p-2"
+            className="col-1 addButton p-2"
             onClick={() => {
               if (title && author && category) {
                 dispatch(

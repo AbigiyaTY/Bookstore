@@ -9,3 +9,12 @@ a {
   list-style: none;
   text-decoration: none;
 }
+
+body {
+  background-color: #f5f6fa;
+  font-family: 'Roboto Slab', serif;
+}
+
+.booksContainer {
+  background-color: #fafafa;
+}

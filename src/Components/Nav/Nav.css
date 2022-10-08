@@ -1,11 +1,13 @@
 .navContainer {
   background-color: #fff;
-  height: 90px;
   margin-top: 2%;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
 }
 
 .navTitle {
   color: #0d95ff;
+  margin-left: 4%;
 }
 
 li {
@@ -22,4 +24,19 @@ li a {
 
 li a:focus {
   color: #9a9a9a;
+}
+
+.Oval {
+  width: 2.813rem;
+  height: 2.813rem;
+  margin-top: 20px;
+  padding: 0.875rem;
+  border: solid 1px #e8e8e8;
+  border-radius: 50%;
+}
+
+.fas {
+  font-size: 24px;
+  color: #0290ff;
+  margin: -5px -5px;
 }
