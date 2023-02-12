@@ -1,10 +1,8 @@
+![](https://img.shields.io/badge/Microverse-blueviolet)
+
 # Bookstore
 
-"Bookstore" It is a Single Page App (SPA) website that allows users to:
-
-   * Display a list of books.
-   * Add a book.
-   * Remove a selected book.
+> Book store app is a single-page app (SPA) that allows users to display a list of books, add a book, and remove selected books. 
 
 ## Built with
 
@@ -16,8 +14,6 @@
 ## Live Demo 
 
 [Live Demo Link](https://amazing-dusk-282c94.netlify.app/)
-
-
 
 ## Getting started 
 
@@ -61,4 +57,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](./MIT.md) licensed.
+This project is [MIT](./LICENSE) licensed.
